@@ -6,8 +6,8 @@ from . import views
 urlpatterns = [
     path('getempresas', views.get_empresas),
     path('addempresa', views.add_empresa),
-    path('updateempresa/<int:book_id>', views.update_empresa),
-    path('deleteempresa/<int:book_id>', views.delete_empresa)
+    path('updateempresa/<int:empresa_id>', views.update_empresa),
+    path('deleteempresa/<int:empresa_id>', views.delete_empresa)
 ]
 
 # handler404 = views.error_404

@@ -17,7 +17,7 @@ from rest_framework.response import Response
 @csrf_exempt
 @permission_classes([IsAuthenticated])
 def welcome(request):
-    content = {"message": "Welcome to the BookStore!"}
+    content = {"message": "Welcome to the empresastore!"}
     return JsonResponse(content)
 
 @api_view(["GET"])
@@ -27,7 +27,7 @@ def get_empresas(request):
     # user = request.user.id
     empresas = Empresa.objects.all()
     serializer = EmpresaSerializer(empresas, many=True)
-    return JsonResponse({'books': serializer.data}, safe=False, status=status.HTTP_200_OK)
+    return JsonResponse({'empresas': serializer.data}, safe=False, status=status.HTTP_200_OK)
 
 
 @api_view(["POST"])
@@ -43,7 +43,7 @@ def add_empresa(request):
             address=payload["address"],
         )
         serializer = EmpresaSerializer(empresa)
-        return JsonResponse({'books': serializer.data}, safe=False, status=status.HTTP_201_CREATED)
+        return JsonResponse({'empresas': serializer.data}, safe=False, status=status.HTTP_201_CREATED)
     except ObjectDoesNotExist as e:
         return JsonResponse({'error': str(e)}, safe=False, status=status.HTTP_404_NOT_FOUND)
     except Exception:
@@ -60,7 +60,7 @@ def update_empresa(request, empresa_id):
         # returns 1 or 0
         empresa.update(**payload)
         serializer = EmpresaSerializer(empresa)
-        return JsonResponse({'book': serializer.data}, safe=False, status=status.HTTP_200_OK)
+        return JsonResponse({'empresa': serializer.data}, safe=False, status=status.HTTP_200_OK)
     except ObjectDoesNotExist as e:
         return JsonResponse({'error': str(e)}, safe=False, status=status.HTTP_404_NOT_FOUND)
     except Exception:
