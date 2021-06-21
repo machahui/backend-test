@@ -12,6 +12,7 @@ from rest_framework import status
 import json
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.response import Response
+from faker import Faker
 
 @api_view(["GET"])
 @csrf_exempt
@@ -19,6 +20,21 @@ from rest_framework.response import Response
 def welcome(request):
     content = {"message": "Welcome to the empresastore!"}
     return JsonResponse(content)
+
+@api_view(["GET"])
+@csrf_exempt
+# @permission_classes([IsAuthenticated])
+def generate_registros_empresas(request):
+    listEmpresas = []
+    for i in range(20):
+        fake = Faker()
+        values = {'name':fake.name(),'address':fake.address()}
+        Empresa.objects.create(
+            name=values["name"],
+            address=values["address"],
+        )
+        listEmpresas.append(values)
+    return JsonResponse({'empresas': listEmpresas}, safe=False, status=status.HTTP_200_OK)
 
 @api_view(["GET"])
 @csrf_exempt
