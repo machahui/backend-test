@@ -78,3 +78,13 @@ def ejercicio6():
         index +=1
 
     return {'distancia':lengthDistancia,'tiempoEntrega':'{} dias'.format(timeEntrega)}
+
+
+def ejercicio7():
+    query = """
+                update employees a,
+                join countries b on a.country_id = b.id
+                join continents c on b.continent_id = c.id
+                set a.salary = c.anual_adjustment
+                where a.salary <= 5000;
+    """
