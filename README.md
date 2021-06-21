@@ -18,6 +18,6 @@ Siga los siguientes pasos para ejecutar el proyecto en local.
 Ingresar a: [http://localhost:9000](http://localhost:9000)
 El ejercicio 2 se encuentra en el directorio apptest (model,serializer,urls,views)
 
-Los ejercicios 3,4,5,6 y 7 se encuentra en el archico apptest/ejecicios.py
+Los ejercicios 3,4,5,6 y 7 se encuentran en el archivo apptest/ejecicios.py
 
-Para ingresar registros con Faker llame al metodo get http://localhost:9000/empresa/generateregistrosempresas
+Para ingresar registros con Faker llamé al método get http://localhost:9000/empresa/generateregistrosempresas
