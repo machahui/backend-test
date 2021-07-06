@@ -1,7 +1,6 @@
-from coolprojectname.appwithmethodsscript import methods
 import requests
 import random
-
+import sys
 # class Ejecicios():
 
 def ejercicio3():
@@ -21,7 +20,7 @@ def ejercicio3():
             indexY += 1
 
         index += 1
-
+    print(listTextPalindromo)
     return listTextPalindromo
 
 def ejercicio4():
@@ -29,8 +28,14 @@ def ejercicio4():
         url = 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json'
         postResponse = requests.get(url)
         response = postResponse.json()
+        print(response)
     except Exception as e:
         print(e)
+
+def recur_fibo(n):
+    if n <= 1:
+        return n
+    return (recur_fibo(n - 1) + recur_fibo(n - 2))
 
 def ejercicio5():
     index = 1
@@ -46,15 +51,12 @@ def ejercicio5():
             if numberEvaluate % value == 0:
                 lisDivisores.append(value)
 
-        if len(lisDivisores) >= 10:
+        if len(lisDivisores) >= 1000:
             break
         index += 1
-    return [lisDivisores,numberEvaluate]
-
-def recur_fibo(n):
-    if n <= 1:
-        return n
-    return (recur_fibo(n - 1) + recur_fibo(n - 2))
+    response = [lisDivisores,numberEvaluate]
+    print(response)
+    return response
 
 def ejercicio6():
     rangoN = 20
@@ -77,7 +79,9 @@ def ejercicio6():
             break
         index +=1
 
-    return {'distancia':lengthDistancia,'tiempoEntrega':'{} dias'.format(timeEntrega)}
+    response = {'distancia':lengthDistancia,'tiempoEntrega':'{} dias'.format(timeEntrega)}
+    print(response)
+    return response
 
 
 def ejercicio7():
@@ -88,3 +92,6 @@ def ejercicio7():
                 set a.salary = c.anual_adjustment
                 where a.salary <= 5000;
     """
+
+if __name__ == '__main__':
+    globals()[sys.argv[1]]()

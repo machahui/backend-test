@@ -12,4 +12,4 @@ urlpatterns = [
     path('generateregistrosempresas', views.generate_registros_empresas)
 ]
 # handler404 = views.error_404
-# handler500 = views.error_500
+# handle    r500 = views.error_500
