@@ -92,6 +92,7 @@ def ejercicio7():
                 set a.salary = c.anual_adjustment
                 where a.salary <= 5000;
     """
+    print(query)
 
 if __name__ == '__main__':
     globals()[sys.argv[1]]()
